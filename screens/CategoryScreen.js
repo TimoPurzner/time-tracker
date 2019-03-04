@@ -4,7 +4,8 @@ import {
     StyleSheet,
     View,
     Text, FlatList,
-    TouchableHighlight,
+    TouchableOpacity,
+    TouchableNativeFeedback
 } from 'react-native';
 import Colors from "../constants/Colors";
 import {Icon} from 'expo';
@@ -13,7 +14,7 @@ import {CategoryContext} from "../stores/category";
 
 export default class CategoryScreen extends React.Component {
     static navigationOptions = {
-        title: 'Kategorieren',
+        title: 'Kategorien',
         headerStyle: {
             backgroundColor: Colors.headerBackground,
             borderBottomColor: Colors.headerBackground,
@@ -31,6 +32,7 @@ export default class CategoryScreen extends React.Component {
     }
 
     _onPressAddButton = () => {
+        console.log('hello');
         this.setState({modalHidden: false})
     };
 
@@ -63,8 +65,8 @@ export default class CategoryScreen extends React.Component {
                     }
                 </CategoryContext.Consumer>
 
-                <TouchableHighlight onPress={this._onPressAddButton}>
-                    <View style={styles.addButton}>
+                <TouchableOpacity onPress={this._onPressAddButton} style={styles.addButton}>
+                    <View style={'addButtonWrap'}>
                         <Icon.Ionicons
                             name={Platform.OS === 'ios' ? 'ios-add-circle-outline' : 'md-add-circle-outline'}
                             size={90}
@@ -72,7 +74,7 @@ export default class CategoryScreen extends React.Component {
                             color={Colors.textDefault}
                         />
                     </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
 
                 <CategoryInput
                     hidden={this.state.modalHidden}
@@ -89,19 +91,13 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignContent: 'center',
+        alignItems: 'center',
         backgroundColor: Colors.screenBackground,
     },
     addButton: {
         position: 'absolute',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
         height: 90,
-        width: '100%',
-        bottom: 10,
-        color: Colors.textDefault
+        bottom: 15,
     },
     list: {
         minHeight: '100%',
