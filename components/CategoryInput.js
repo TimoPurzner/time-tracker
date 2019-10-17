@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableHighlight} from 'react-native';
 import Colors from "../constants/Colors";
 import {CategoryContext} from '../stores/category'
+import DropDown from "./DropDown";
 
 export default class CategoryInput extends React.Component {
     constructor(props) {
@@ -33,6 +34,11 @@ export default class CategoryInput extends React.Component {
                             onChangeText={(text) => this.setState({input: text})}
                             value={this.props.text}
                         />
+                        <View style={styles.colorChoose}>
+                            <Text>
+                                Wähle eine Kategorie aus
+                            </Text>
+                        </View>
 
                         <View style={styles.buttonContainer}>
                             <TouchableHighlight underlayColor="white"
@@ -48,7 +54,7 @@ export default class CategoryInput extends React.Component {
                             <TouchableHighlight
                                 underlayColor="#ffffff"
                                 style={styles.button}
-                                onPress={() =>this._onPressSuccess(categoryContext)}
+                                onPress={() => this._onPressSuccess(categoryContext)}
                             >
                                 <Text style={styles.buttonText}>Speichern</Text>
                             </TouchableHighlight>
@@ -84,6 +90,9 @@ const styles = StyleSheet.create({
         height: 35,
         fontSize: 25,
         backgroundColor: 'white'
+    },
+    colorChoose: {
+
     },
     buttonContainer: {
         flex: 1,

@@ -24,11 +24,10 @@ export default {
     //Text color
     textDefault: '#ffffff',
 
-
     //Settings color
     settingsIcon: '#e91e63',
 
     //inputs
-    inputBackground: '#333333',
+    inputBackground: '#EAEB5E',
     inputButtonGroupSpacer: '#000000'
 };
