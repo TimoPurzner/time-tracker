@@ -13,6 +13,7 @@ import {Icon} from 'expo';
 
 import Colors from "../constants/Colors";
 import {CategoryContext} from "../stores/category";
+import DropDown from "../components/DropDown";
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -37,6 +38,9 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
 
+                <DropDown/>
+                <Text style={{color:'white'}}>Ich bin verdeckt?</Text>
+
                 <View style={styles.addButton}>
                     <Icon.Ionicons
                         name={Platform.OS === 'ios' ? 'ios-add-circle-outline' : 'md-add-circle-outline'}
@@ -54,7 +58,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
         alignContent: 'center',
         backgroundColor: Colors.screenBackground,
     },
@@ -69,5 +72,4 @@ const styles = StyleSheet.create({
         bottom: 10,
         color: Colors.textDefault
     }
-
 });

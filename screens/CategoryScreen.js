@@ -11,6 +11,7 @@ import Colors from "../constants/Colors";
 import {Icon} from 'expo';
 import CategoryInput from '../components/CategoryInput';
 import {CategoryContext} from "../stores/category";
+import DropDown from "../components/DropDown";
 
 export default class CategoryScreen extends React.Component {
     static navigationOptions = {
@@ -47,6 +48,7 @@ export default class CategoryScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <DropDown/>
                 <CategoryContext.Consumer>
                     {categoryContext =>
                         <View style={{flex:1}}>
@@ -64,6 +66,7 @@ export default class CategoryScreen extends React.Component {
                         </View>
                     }
                 </CategoryContext.Consumer>
+
 
                 <TouchableOpacity onPress={this._onPressAddButton} style={styles.addButton}>
                     <View style={'addButtonWrap'}>
@@ -116,5 +119,4 @@ const styles = StyleSheet.create({
     itemText: {
         color: Colors.textDefault,
     }
-
 });
